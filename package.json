@@ -6,8 +6,9 @@
         "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
         "husky:prepare": "husky install",
         "lint": "eslint src",
-        "lint:fix": "eslint src",
-        "prettier": "prettier --write \"src/**/*.{ts,js,json}\""
+        "test": "jest --passWithNoTests",
+        "test:watch": "npx test --watch",
+        "test:staged": "npx test --findRelatedTests"
     },
     "keywords": [],
     "author": "",
@@ -16,12 +17,15 @@
     "devDependencies": {
         "@eslint/js": "^9.31.0",
         "@eslint/json": "^0.13.0",
+        "@types/jest": "^30.0.0",
         "eslint": "^9.31.0",
         "eslint-config-prettier": "^10.1.8",
         "globals": "^16.3.0",
         "husky": "^8.0.0",
+        "jest": "^30.0.4",
         "lint-staged": "^16.1.2",
         "prettier": "^3.6.2",
+        "ts-jest": "^29.4.0",
         "ts-node": "^10.9.2",
         "ts-node-dev": "^2.0.0",
         "typescript": "^5.8.3",
