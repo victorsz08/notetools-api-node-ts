@@ -7,8 +7,8 @@
         "husky:prepare": "husky install",
         "lint": "eslint src",
         "test": "jest --passWithNoTests",
-        "test:watch": "npx test --watch",
-        "test:staged": "npx test --findRelatedTests"
+        "test:watch": "npx jest --watch",
+        "test:staged": "npm run test --findRelatedTests"
     },
     "keywords": [],
     "author": "",
