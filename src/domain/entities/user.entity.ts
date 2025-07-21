@@ -1,7 +1,7 @@
-import { Role } from "domain/enum/role.enum"
-import { DatePattern } from "patterns/date"
-import { Hash } from "patterns/hash"
-import { RandomId } from "patterns/random-id"
+import { Role } from "@/domain/enum/role.enum"
+import { DatePattern } from "@/patterns/date"
+import { Hash } from "@/patterns/hash"
+import { RandomId } from "@/patterns/random-id"
 
 export type User = {
     id: string

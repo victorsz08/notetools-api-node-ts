@@ -1,17 +1,13 @@
 module.exports = {
+    preset: "ts-jest",
     roots: ["<rootDir>/src"],
-    collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
+    collectCoverageFrom: ["<rootDir>/src/**/*.spec.ts"],
     coverageDirectory: "coverage",
     testEnvironment: "node",
     transform: {
-        ".+\\.ts$": "ts-jest",
+        ".+\\.spec.ts$": "ts-jest",
     },
     moduleNameMapper: {
-        "^@/(.*)$": "<rootDir>/src/$1",
-    },
-    globals: {
-        "ts-jest": {
-            tsconfig: "<rootDir>/tsconfig.json",
-        },
+        "@/(.*)$": "<rootDir>/src/$1",
     },
 }
