@@ -11,8 +11,8 @@ export const HttpStatusCode = {
 } as const
 
 export class HttpException extends Error {
-    public statusCode: number
-    constructor(message: string, statusCode: number) {
+    public statusCode: HttpStatusCode
+    constructor(statusCode: HttpStatusCode, message: string) {
         ;(super(message), (this.statusCode = statusCode))
     }
 }
