@@ -2,6 +2,7 @@ import { RandomId } from "@/patterns/random-id"
 import { Status } from "../enum/status.enum"
 import { TimeSlot } from "../enum/time-slot.enum"
 import { DatePattern } from "@/patterns/date"
+import { TypeOrder } from "../enum/type-order.enum"
 
 export type Order = {
     id: string
@@ -12,6 +13,7 @@ export type Order = {
     schedulingTime: TimeSlot
     status: Status
     contact: string
+    type: TypeOrder
     price: number
     userId: string
     createdAt: Date
@@ -28,6 +30,7 @@ export class OrderEntity {
         schedulingDate: Date,
         schedulingTime: TimeSlot,
         contact: string,
+        type: TypeOrder,
         price: number,
         userId: string,
     ) {
@@ -41,6 +44,7 @@ export class OrderEntity {
             status: Status.PENDING,
             contact,
             price,
+            type,
             userId,
             createdAt: DatePattern.getCurrentDate(),
             updatedAt: DatePattern.getCurrentDate(),
@@ -81,6 +85,10 @@ export class OrderEntity {
 
     public get contact() {
         return this.props.contact
+    }
+
+    public get type() {
+        return this.props.type
     }
 
     public get price() {
