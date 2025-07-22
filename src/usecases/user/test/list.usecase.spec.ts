@@ -2,8 +2,6 @@ import { ListUser, UserInterface } from "@/domain/interface/user.interface"
 import { ListUserUsecase } from "../list.usecase"
 import { UserEntity } from "@/domain/entities/user.entity"
 
-
-
 describe("List User Usecase", () => {
     let mockUserRepository: jest.Mocked<UserInterface>
     let usecase: ListUserUsecase
