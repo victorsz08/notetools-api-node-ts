@@ -10,7 +10,7 @@
         "test": "npx jest --passWithNoTests",
         "test:watch": "npx jest --watch",
         "test:coverage": "npx jest --coverage",
-        "test:staged": "npx jest --findRelatedTests",
+        "test:staged": "npm run test --findRelatedTests",
         "test:push": "npx jest --coverage"
     },
     "keywords": [],
@@ -25,6 +25,7 @@
         "@types/uuid": "^10.0.0",
         "@typescript-eslint/eslint-plugin": "^8.37.0",
         "@typescript-eslint/parser": "^8.37.0",
+        "commitlint": "^19.8.1",
         "eslint": "^9.31.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.3",
