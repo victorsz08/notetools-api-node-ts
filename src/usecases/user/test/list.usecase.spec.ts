@@ -19,7 +19,7 @@ describe("List User Usecase", () => {
         usecase = ListUserUsecase.build(mockUserRepository)
     })
 
-    it("should list users successfully", async () => {
+    test("should list users successfully", async () => {
         const mockUsers: ListUser = {
             users: [] as UserEntity[],
             total: 0,

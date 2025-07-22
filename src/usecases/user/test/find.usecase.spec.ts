@@ -20,7 +20,7 @@ describe("FindUserUsecase", () => {
         usecase = FindUserUsecase.build(mockUserRepository)
     })
 
-    it("deve buscar um usuário pelo id", async () => {
+    test("deve buscar um usuário pelo id", async () => {
         const user = await UserEntity.build("teste", "teste", "teste", "teste")
         mockUserRepository.find.mockResolvedValue(user)
 
@@ -42,7 +42,7 @@ describe("FindUserUsecase", () => {
         expect(mockUserRepository.find).toHaveBeenCalledWith(input.id)
     })
 
-    it("deve lançar um erro se o usuário não for encontrado", async () => {
+    test("deve lançar um erro se o usuário não for encontrado", async () => {
         mockUserRepository.find.mockResolvedValue(null)
 
         const input: FindUserInput = {

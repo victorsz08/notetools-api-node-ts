@@ -23,7 +23,7 @@ describe("CreateUserUsecase", () => {
         usecase = CreateUserUsecase.build(mockUserRepository)
     })
 
-    it("deve criar um usuário com sucesso", async () => {
+    test("deve criar um usuário com sucesso", async () => {
         mockUserRepository.findByUsername.mockResolvedValue(null)
         mockUserRepository.create.mockResolvedValue(undefined)
 
@@ -38,7 +38,7 @@ describe("CreateUserUsecase", () => {
         expect(mockUserRepository.create).toHaveBeenCalled()
     })
 
-    it("deve lançar exceção se o username já existir", async () => {
+    test("deve lançar exceção se o username já existir", async () => {
         mockUserRepository.findByUsername.mockResolvedValue({} as UserEntity)
 
         const input: CreateUserInput = {

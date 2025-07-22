@@ -20,7 +20,7 @@ describe("Update User Usecase", () => {
         usecase = UpdateUserUsecase.build(mockUserRepository)
     })
 
-    it("Deve atualizar o usuário com sucesso", async () => {
+    test("Deve atualizar o usuário com sucesso", async () => {
         const user = await UserEntity.build("teste", "teste", "teste", "teste")
         mockUserRepository.find.mockResolvedValue(user)
 
@@ -35,7 +35,7 @@ describe("Update User Usecase", () => {
         expect(mockUserRepository.update).toHaveBeenCalled()
     })
 
-    it("deve lançar exceção se o username já existir", async () => {
+    test("deve lançar exceção se o username já existir", async () => {
         mockUserRepository.findByUsername.mockResolvedValue({} as UserEntity)
 
         const input: UpdateUserInput = {

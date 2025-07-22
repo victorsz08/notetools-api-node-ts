@@ -46,7 +46,7 @@ describe("Change Password User Usecase", () => {
         jest.restoreAllMocks()
     })
 
-    it("deve alterar a senha do usuário com sucesso", async () => {
+    test("deve alterar a senha do usuário com sucesso", async () => {
         mockUserRepository.find.mockResolvedValue(mockUser)
 
         const input = {
@@ -70,7 +70,7 @@ describe("Change Password User Usecase", () => {
         )
     })
 
-    it("Deve lançar uma exceção de usuário não localizado com esse id", async () => {
+    test("Deve lançar uma exceção de usuário não localizado com esse id", async () => {
         mockUserRepository.find.mockResolvedValue(null)
 
         const input = {
@@ -91,7 +91,7 @@ describe("Change Password User Usecase", () => {
         expect(mockUserRepository.changePassword).not.toHaveBeenCalled()
     })
 
-    it("deve lançar uma exceção de senha atual invalida", async () => {
+    test("deve lançar uma exceção de senha atual invalida", async () => {
         mockUserRepository.find.mockResolvedValue(mockUser)
         jest.spyOn(Hash, "compare").mockResolvedValue(false) // Simulate invalid current password
 

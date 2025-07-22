@@ -26,7 +26,7 @@ describe("Delete User Usecase", () => {
         usecase = DeleteUserUsecase.build(mockUserRepository)
     })
 
-    it("deve deletar o usuário com sucesso", async () => {
+    test("deve deletar o usuário com sucesso", async () => {
         mockUserRepository.find.mockResolvedValue(mockUser)
         mockUserRepository.delete.mockResolvedValue(undefined)
 
@@ -40,7 +40,7 @@ describe("Delete User Usecase", () => {
         )
     })
 
-    it("deve lançar uma exceção de usuário não localizado com esse id", async () => {
+    test("deve lançar uma exceção de usuário não localizado com esse id", async () => {
         mockUserRepository.find.mockResolvedValue(null)
 
         const input = { id: "non-existent-user-id" }

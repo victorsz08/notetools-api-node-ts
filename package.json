@@ -7,10 +7,11 @@
         "husky:prepare": "husky install",
         "lint": "eslint src",
         "format": "prettier --write \"src/**/*.ts\"",
-        "test": "jest --passWithNoTests",
+        "test": "npx jest --passWithNoTests",
         "test:watch": "npx jest --watch",
-        "test:staged": "npm run test --findRelatedTests",
-        "test:push": "npm run test --coverage"
+        "test:coverage": "npx jest --coverage",
+        "test:staged": "npx jest --findRelatedTests",
+        "test:push": "npx jest --coverage"
     },
     "keywords": [],
     "author": "",
