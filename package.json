@@ -6,6 +6,7 @@
         "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
         "husky:prepare": "husky install",
         "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
         "format": "prettier --write \"src/**/*.ts\"",
         "test": "npx jest --passWithNoTests",
         "test:watch": "npx jest --watch",
