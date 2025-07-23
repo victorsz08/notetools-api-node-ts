@@ -6,6 +6,7 @@ import { TypeOrder } from "../enum/type-order.enum"
 export type OrderListQuery = {
     page: number
     limit: number
+    userId: string
     status?: Status
     schedulingDateIn?: Date
     schedulingDateOut?: Date
