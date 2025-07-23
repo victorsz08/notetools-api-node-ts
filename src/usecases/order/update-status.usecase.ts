@@ -5,6 +5,7 @@ import {
     HttpException,
     HttpStatusCode,
 } from "@/package/exceptions/http-exceptions"
+import { DatePattern } from "@/patterns/date"
 
 export type UpdateStatusOrderInput = {
     id: string
@@ -25,6 +26,7 @@ export class UpdateStatusOrderUsecase
     public async execute(input: UpdateStatusOrderInput): Promise<void> {
         const { id, status } = input
         const order = await this.orderRepository.find(id)
+        const updatedAt = DatePattern.getCurrentDate()
 
         if (!order) {
             throw new HttpException(
@@ -33,7 +35,7 @@ export class UpdateStatusOrderUsecase
             )
         }
 
-        await this.orderRepository.updateStatus(id, status)
+        await this.orderRepository.updateStatus(id, status, updatedAt)
 
         return
     }

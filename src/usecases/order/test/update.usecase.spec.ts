@@ -28,11 +28,15 @@ describe("UpdateOrderUsecase", () => {
     test("deve atualizar um pedido com sucesso", async () => {
         const data = {} as OrderEntity
         mockRepository.find.mockResolvedValue(data)
+        const updatedAt = expect.any(Date)
         const input = {} as UpdateOrderInput
 
         await usecase.execute(input)
 
-        expect(mockRepository.update).toHaveBeenCalledWith(input)
+        expect(mockRepository.update).toHaveBeenCalledWith({
+            ...input,
+            updatedAt,
+        })
         expect(mockRepository.find).toHaveBeenCalledWith(input.id)
     })
 

@@ -32,12 +32,14 @@ describe("UpdateStatusOrderUsecase", () => {
         const data = {} as OrderEntity
         mockRepository.find.mockResolvedValue(data)
         const input = {} as UpdateStatusOrderInput
+        const updatedAt = expect.any(Date)
 
         await usecase.execute(input)
 
         expect(mockRepository.updateStatus).toHaveBeenCalledWith(
             input.id,
             input.status,
+            updatedAt,
         )
         expect(mockRepository.find).toHaveBeenCalledWith(input.id)
     })

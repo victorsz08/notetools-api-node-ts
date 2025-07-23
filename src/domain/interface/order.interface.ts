@@ -28,12 +28,13 @@ export interface OrderInterface {
     find(id: string): Promise<OrderEntity | null>
     list(query: OrderListQuery): Promise<OrderList>
     update(order: Partial<OrderEntity>): Promise<void>
-    updateStatus(id: string, status: Status): Promise<void>
+    updateStatus(id: string, status: Status, updatedAt: Date): Promise<void>
     deleteGroup(ids: string[]): Promise<void>
     updateScheduling(
         id: string,
         schedulingDate: Date,
         schedulingTime: TimeSlot,
+        updatedAt: Date,
     ): Promise<void>
     delete(id: string): Promise<void>
 }
