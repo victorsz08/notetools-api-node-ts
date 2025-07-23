@@ -12,7 +12,7 @@
         "test:watch": "npx jest --watch",
         "test:coverage": "npx jest --coverage",
         "test:staged": "npx jest --findRelatedTests",
-        "test:push": "npx jest --coverage"
+        "test:push": "npx jest --findRelatedTests"
     },
     "keywords": [],
     "author": "",
