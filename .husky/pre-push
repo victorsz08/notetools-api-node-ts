@@ -1,2 +1,4 @@
-FILES=$(git diff --name-only origin/$(git rev-parse --abbrev-ref HEAD))
-npx jest --findRelatedTests --passWithNoTests $FILES
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run test:push
