@@ -10,7 +10,7 @@ export type NoteList = {
 
 export interface NoteInterface {
     create(note: NoteEntity): Promise<void>
-    find(id: string): Promise<NoteEntity>
+    find(id: string): Promise<NoteEntity | null>
     list(page: number, limit: number, userId: string): Promise<NoteList>
     update(
         id: string,
