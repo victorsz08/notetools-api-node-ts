@@ -20,15 +20,13 @@ export function Validation(schema: z.ZodObject<T>) {
                     }
                 })
 
-                return response.status(401).send({
+                response.status(401).send({
                     message: "Campos preenchidos incorretamentes",
                     errors: errorMessage,
                 })
             }
 
-            return response
-                .status(500)
-                .send({ message: "erro interno do servidor" })
+            response.status(500).send({ message: "erro interno do servidor" })
         }
     }
 }

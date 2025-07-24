@@ -7,9 +7,7 @@ export function GuardMiddleware(role: Role) {
     return async (request: Request, response: Response, next: NextFunction) => {
         const token = request.cookies["nt.authtoken"]
         if (!token) {
-            return response
-                .status(401)
-                .send({ message: "Token não localizado" })
+            response.status(401).send({ message: "Token não localizado" })
         }
 
         try {
@@ -18,13 +16,13 @@ export function GuardMiddleware(role: Role) {
                 String(process.env.JWT_SECRET),
             ) as UserEntity
             if (decoded.role !== role) {
-                return response.status(403).send({
+                response.status(403).send({
                     message: "Usuário sem autorização para acessar essa rota",
                 })
             }
             next()
         } catch (error) {
-            return response
+            response
                 .status(401)
                 .send({ message: "Usuário não autenticado", error: error })
         }
