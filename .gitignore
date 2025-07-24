@@ -2,4 +2,6 @@
 .env
 /dist
 /coverage
+.devcontainer
+.github
 /src/generated/prisma
