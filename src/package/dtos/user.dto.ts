@@ -55,3 +55,9 @@ export const changePasswordDto = z.object({
             "A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial",
         ),
 })
+
+export const listUserDto = z.object({
+    page: z.coerce.number().default(1),
+    limit: z.coerce.number().default(10),
+    search: z.string().optional(),
+})
