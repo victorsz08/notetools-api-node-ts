@@ -16,7 +16,7 @@ export const createOrderDto = z.object({
     type: z.enum(TypeOrder),
 })
 
-export const updateUserDto = z.object({
+export const updateOrderDto = z.object({
     number: z.coerce
         .number()
         .min(1, "O numero do pedido deve ser maior que zero"),
