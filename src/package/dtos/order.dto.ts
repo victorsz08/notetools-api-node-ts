@@ -35,3 +35,14 @@ export const updateSchedulingOrderDto = z.object({
 export const updateStatusOrderDto = z.object({
     status: z.enum(Status),
 })
+
+export const listOrderDto = z.object({
+    page: z.coerce.number().default(1),
+    limit: z.coerce.number().default(10),
+    status: z.enum(Status).optional(),
+    type: z.enum(TypeOrder).optional(),
+    createdDateIn: z.coerce.date().optional(),
+    createdDateOut: z.coerce.date().optional(),
+    schedulingDateIn: z.coerce.date().optional(),
+    schedulingDateOut: z.coerce.date().optional(),
+})
