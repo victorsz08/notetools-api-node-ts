@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
 import { CreateNoteUsecase } from "@/usecases/note/create.usecase"
 import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { Validation } from "@/middleware/validate-schema"
+import { createNoteDto } from "@/package/dtos/note.dto"
 
 export class CreateNoteRoute implements Route {
     private constructor(
@@ -43,6 +45,6 @@ export class CreateNoteRoute implements Route {
         response: Response,
         next: NextFunction,
     ) => Promise<void>)[] {
-        return [AuthMiddleware()]
+        return [AuthMiddleware(), Validation(createNoteDto)]
     }
 }
