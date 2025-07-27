@@ -26,5 +26,5 @@ export interface InsightInterface {
         userId: string,
         startDate: Date,
         endDate: Date,
-    ): Promise<InsightDaily>
+    ): Promise<InsightDaily[]>
 }
