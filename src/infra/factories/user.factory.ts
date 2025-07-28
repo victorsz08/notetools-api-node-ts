@@ -1,4 +1,4 @@
-import { prismaClient } from "@/package/prisma-client/prisma-client"
+import { prismaClient } from "@/package/prisma-client/prisma"
 import { UserRepositoryPrisma } from "../repositories/user.repository.prisma"
 import { CreateUserUsecase } from "@/usecases/user/create.usecase"
 import { FindUserUsecase } from "@/usecases/user/find.usecase"

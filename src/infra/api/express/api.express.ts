@@ -32,7 +32,7 @@ export class ApiExpress implements Api {
         routes.forEach((route) => {
             const method = route.getMethod().toUpperCase()
             const path = route.getPath()
-            console.info(`"\x1b[32m[${method}]\x1b[0m]: ${path}`)
+            console.info(`\x1b[32m[${method}\x1b[0m]: ${path}`)
         })
     }
 
