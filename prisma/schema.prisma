@@ -23,6 +23,7 @@ model Contract {
   createdAt      DateTime
   updatedAt      DateTime
   type           TypeContract?
+  connectAt      DateTime? 
   observation    String?
   user           User          @relation(fields: [userId], references: [id])
 }
