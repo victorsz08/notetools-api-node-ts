@@ -3,6 +3,8 @@ import express, { Express } from "express"
 import { Route } from "./routes/route.express"
 import CookieParser from "cookie-parser"
 import cors from "cors"
+import swaggerUi from "swagger-ui-express"
+import swaggerJson from "@/docs.swagger.json"
 
 export class ApiExpress implements Api {
     private app: Express
@@ -23,6 +25,7 @@ export class ApiExpress implements Api {
 
         this.addRoutes(routes)
         this.addLogs(routes)
+        this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerJson))
     }
 
     public static build(routes: Route[]) {
