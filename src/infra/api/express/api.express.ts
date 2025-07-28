@@ -1,6 +1,8 @@
 import { Api } from "../api"
 import express, { Express } from "express"
 import { Route } from "./routes/route.express"
+import CookieParser from "cookie-parser"
+import cors from "cors"
 
 export class ApiExpress implements Api {
     private app: Express
@@ -9,6 +11,16 @@ export class ApiExpress implements Api {
         this.app = express()
 
         this.app.use(express.json())
+        this.app.use(CookieParser())
+        this.app.use(
+            cors({
+                origin: ["http://localhost:5173"],
+                allowedHeaders: "Content-type, Authorization",
+                methods: ["POST", "PUT", "GET", "DELETE", "OPTIONS"],
+                credentials: true,
+            }),
+        )
+
         this.addRoutes(routes)
         this.addLogs(routes)
     }
