@@ -1,8 +1,3 @@
-import {
-    ListNoteRoute,
-    ListNoteRoute,
-    ListNoteRoute,
-} from "./../api/express/routes/note/list.express.route"
 import { prismaClient } from "@/package/prisma-client/prisma"
 import { NoteRepositoryPrisma } from "../repositories/note.repository.prisma"
 import { CreateNoteUsecase } from "@/usecases/note/create.usecase"
@@ -14,6 +9,7 @@ import { CreateNoteRoute } from "../api/express/routes/note/create.express.route
 import { FindNoteRoute } from "../api/express/routes/note/find.express.route"
 import { UpdateNoteRoute } from "../api/express/routes/note/update.express.route"
 import { DeleteNoteRoute } from "../api/express/routes/note/delete.express.route"
+import { ListNoteRoute } from "../api/express/routes/note/list.express.route"
 
 export const NoteFactory = () => {
     const noteRepository = NoteRepositoryPrisma.build(prismaClient)
