@@ -32,6 +32,7 @@ describe("AuthLoginUsecase", () => {
             findByUsername: jest.fn(),
             list: jest.fn(),
             update: jest.fn(),
+            grantUser: jest.fn(),
         } as jest.Mocked<UserInterface>
 
         usecase = AuthLoginUsecase.build(mockRepository)

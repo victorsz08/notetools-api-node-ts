@@ -19,6 +19,7 @@ describe("CreateUserUsecase", () => {
             update: jest.fn(),
             delete: jest.fn(),
             changePassword: jest.fn(),
+            grantUser: jest.fn(),
         }
         usecase = CreateUserUsecase.build(mockUserRepository)
     })

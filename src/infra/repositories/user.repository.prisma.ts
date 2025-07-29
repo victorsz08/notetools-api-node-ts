@@ -169,4 +169,17 @@ export class UserRepositoryPrisma implements UserInterface {
 
         return
     }
+
+    public async grantUser(id: string, role: Role): Promise<void> {
+        await this.repository.user.update({
+            where: {
+                id,
+            },
+            data: {
+                role: role,
+            },
+        })
+
+        return
+    }
 }

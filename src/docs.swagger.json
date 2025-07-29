@@ -185,6 +185,7 @@
                 "tags": ["Usuários"],
                 "security": [{ "cookieAuth": ["nt.authtoken"] }],
                 "requestBody": {
+                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
@@ -201,7 +202,13 @@
                                     "password": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "username",
+                                    "firstName",
+                                    "lastName",
+                                    "password"
+                                ]
                             }
                         }
                     }

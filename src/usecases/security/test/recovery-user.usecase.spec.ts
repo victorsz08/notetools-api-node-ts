@@ -19,6 +19,7 @@ describe("RecoveryUserUsecase", () => {
             findByUsername: jest.fn(),
             list: jest.fn(),
             update: jest.fn(),
+            grantUser: jest.fn(),
         }
 
         usecase = RecoveryUserUsecase.build(mockRepository)

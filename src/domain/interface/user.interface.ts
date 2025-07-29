@@ -1,4 +1,5 @@
 import { UserEntity } from "domain/entities/user.entity"
+import { Role } from "../enum/role.enum"
 
 export type ListUser = {
     users: UserEntity[]
@@ -22,4 +23,5 @@ export interface UserInterface {
     ): Promise<void>
     delete(id: string): Promise<void>
     changePassword(id: string, password: string, updatedAt: Date): Promise<void>
+    grantUser(id: string, role: Role): Promise<void>
 }
