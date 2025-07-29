@@ -75,10 +75,110 @@
                         }
                     }
                 }
+            },
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "number": {
+                        "type": "integer"
+                    },
+                    "local": {
+                        "type": "string"
+                    },
+                    "observation": {
+                        "type": "string"
+                    },
+                    "schedulingDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "schedulingTime": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "format": "float"
+                    },
+                    "contact": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": ["PENDENTE", "CONECTADO", "CANCELADO"]
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": ["BASE", "PROSPECT"]
+                    },
+                    "endsAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
             }
         }
     },
     "paths": {
+        "/auth/login": {
+            "post": {
+                "summary": "Login",
+                "tags": ["Auth"],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["username", "password"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Set-cookie": {
+                                "description": "JWT token vai setado no cookie - name=nt.authtoken, HttpOnly=true, Secure=true",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Username ou senha incorretos"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/users": {
             "post": {
                 "summary": "Criar um novo usuário",
@@ -398,6 +498,428 @@
                             "application/json": {
                                 "example": {
                                     "message": "Usuário não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "post": {
+                "summary": "Criar um novo pedido",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "local": {
+                                        "type": "string"
+                                    },
+                                    "observation": {
+                                        "type": "string"
+                                    },
+                                    "schedulingDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "schedulingTime": {
+                                        "type": "string"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "format": "float"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": ["BASE", "PROSPECT"]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido criado com sucesso"
+                    },
+                    "400": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequest"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "summary": "Buscar pedido por id",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Pedido não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualizar informações do pedido",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "type": "integer"
+                                    },
+                                    "local": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "format": "float"
+                                    },
+                                    "contact": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": ["BASE", "PROSPECT"]
+                                    },
+                                    "observation": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequest"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Pedido não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Excluir um pedido",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Pedido não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/list-orders": {
+            "get": {
+                "summary": "Listar todos os pedidos",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["PROSPECT", "BASE"]
+                        }
+                    },
+                    {
+                        "name": "schedulingDateIn",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "schedulingDateOut",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "createdDateIn",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "createdDateOut",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["CONECTADO", "CANCELADO", "PENDENTE"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "orders": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Order"
+                                            }
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "page": {
+                                            "type": "integer"
+                                        },
+                                        "limit": {
+                                            "type": "integer"
+                                        },
+                                        "totalPages": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/update-status/{id}": {
+            "put": {
+                "summary": "Atualizar status do pedido",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "CONECTADO",
+                                            "PENDENTE",
+                                            "CANCELADO"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Pedido não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/update-scheduling/{id}": {
+            "put": {
+                "summary": "Atualizar agendamento do pedido",
+                "tags": ["Pedidos"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "schedulindDate": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "schedulingTime": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BadRequest"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Pedido não localizado com esse id"
                                 }
                             }
                         }

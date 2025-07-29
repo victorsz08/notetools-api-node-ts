@@ -18,7 +18,7 @@ export default [
             "prettier/prettier": "error", // Enforce Prettier formatting
             // Add other ESLint rules as needed
         },
-        ignores: ["node_modules/", "dist/"], // Ignore build and dependency folders
+        ignores: ["node_modules/", "dist/", "**/*.json"], // Ignore build and dependency folders
     },
     pluginJs.configs.recommended, // Recommended JS rules
     ...tseslint.configs.recommended, // Recommended TypeScript rules

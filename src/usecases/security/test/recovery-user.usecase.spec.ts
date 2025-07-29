@@ -1,7 +1,6 @@
 import { UserInterface } from "@/domain/interface/user.interface"
 import { RecoveryUserUsecase } from "../recovery-user.usecase"
 import { UserEntity } from "@/domain/entities/user.entity"
-import { Hash } from "@/patterns/hash"
 import {
     HttpException,
     HttpStatusCode,
