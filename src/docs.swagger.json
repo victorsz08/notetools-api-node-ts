@@ -202,6 +202,35 @@
                 }
             }
         },
+        "/auth/session": {
+            "get": {
+                "summary": "Buscar dados da sessão do usuário",
+                "tags": ["Auth"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não localizado",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Usuário não localizado com esse id"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/users": {
             "post": {
                 "summary": "Criar um novo usuário",
