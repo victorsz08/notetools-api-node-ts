@@ -150,6 +150,68 @@
                         "format": "date-time"
                     }
                 }
+            },
+            "Insights": {
+                "type": "object",
+                "properties": {
+                    "trendSales": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "sales": {
+                        "type": "integer"
+                    },
+                    "trendRevenue": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "revenue": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "trendCompletionRate": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "completionRate": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "InsightStatus": {
+                "type": "object",
+                "properties": {
+                    "pending": {
+                        "type": "integer"
+                    },
+                    "connected": {
+                        "type": "integer"
+                    },
+                    "canceled": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "InsightDaily": {
+                "type": "object",
+                "properties": {
+                    "days": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -1197,6 +1259,117 @@
                                             "type": "integer"
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/insights": {
+            "get": {
+                "summary": "Buscar relatório geral de pedidos",
+                "tags": ["Relatórios"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Insights"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/insight-status": {
+            "get": {
+                "summary": "Buscar relatório dos status dos pedidos",
+                "tags": ["Relatórios"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InsightStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/insight-daily": {
+            "get": {
+                "summary": "Buscar relatório de vendas por dia",
+                "tags": ["Relatórios"],
+                "security": [{ "cookieAuth": ["nt.authtoken"] }],
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InsightDaily"
                                 }
                             }
                         }

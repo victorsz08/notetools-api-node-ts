@@ -15,7 +15,7 @@ function main() {
         ...SecurityFactory(),
         ...AuthFactory(),
     ])
-    api.start(3000)
+    api.start(3333)
 }
 
 main()
