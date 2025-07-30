@@ -1,3 +1,4 @@
+import { Role } from "@/domain/enum/role.enum"
 import { z } from "zod"
 
 export const createUserDto = z.object({
@@ -60,4 +61,8 @@ export const listUserDto = z.object({
     page: z.coerce.number().default(1),
     limit: z.coerce.number().default(10),
     search: z.string().optional(),
+})
+
+export const grantUserDto = z.object({
+    role: z.enum(Role),
 })
