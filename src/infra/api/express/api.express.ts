@@ -32,6 +32,10 @@ export class ApiExpress implements Api {
         return new ApiExpress(routes)
     }
 
+    public goToApp() {
+        return this.app
+    }
+
     private addRoutes(routes: Route[]) {
         routes.forEach((route) => {
             const handler = route.getHandler()
