@@ -8,7 +8,7 @@ import { Usecase } from "@/usecases/usecase.core"
 
 export type CreateUserInput = {
     username: string
-    fistName: string
+    firstName: string
     lastName: string
     password: string
 }
@@ -25,7 +25,7 @@ export class CreateUserUsecase
     }
 
     public async execute(input: CreateUserInput): Promise<void> {
-        const { username, fistName, lastName, password } = input
+        const { username, firstName, lastName, password } = input
         const usernameAlreadyExists =
             await this.userRepository.findByUsername(username)
 
@@ -38,7 +38,7 @@ export class CreateUserUsecase
 
         const user = await UserEntity.build(
             username,
-            fistName,
+            firstName,
             lastName,
             password,
         )

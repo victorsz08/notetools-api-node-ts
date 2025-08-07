@@ -30,7 +30,7 @@ describe("CreateUserUsecase", () => {
 
         const input: CreateUserInput = {
             username: "usuario1",
-            fistName: "Nome",
+            firstName: "Nome",
             lastName: "Sobrenome",
             password: "senha123",
         }
@@ -44,7 +44,7 @@ describe("CreateUserUsecase", () => {
 
         const input: CreateUserInput = {
             username: "usuario1",
-            fistName: "Nome",
+            firstName: "Nome",
             lastName: "Sobrenome",
             password: "senha123",
         }

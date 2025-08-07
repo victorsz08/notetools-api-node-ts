@@ -5,7 +5,7 @@ export function AuthMiddleware() {
     return async (request: Request, response: Response, next: NextFunction) => {
         const token = request.cookies["nt.authtoken"]
         if (!token) {
-            response.status(401).send({ message: "Token não localizado" })
+            response.status(403).send({ message: "Token não localizado" })
         }
 
         try {
