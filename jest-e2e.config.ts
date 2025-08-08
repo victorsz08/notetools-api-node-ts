@@ -1,4 +1,4 @@
-import jestConfig from "./jest.config.ts"
+import jestConfig from "./jest.config"
 
 export default {
     ...jestConfig,
