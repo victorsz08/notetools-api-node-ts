@@ -11,7 +11,7 @@
         "test:db:up": "docker compose up -d ",
         "test:db:down": "docker compose down -v",
         "test": "npx jest --passWithNoTests",
-        "test:e2e": "npx jest --passWithNoTests --config jest-e2e.config.ts",
+        "test:e2e": "npx jest --passWithNoTests --config jest-e2e.config.ts --detectOpenHandles",
         "test:watch": "npx jest --watch",
         "test:coverage": "npx jest --coverage",
         "test:staged": "npx jest --findRelatedTests --passWithNoTests",

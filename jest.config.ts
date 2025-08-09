@@ -5,8 +5,8 @@ export default {
         "<rootDir>/src/**/*.ts",
         "!<rootDir>/src/**/*.spec.ts",
     ],
+    testEnvironment: "./prisma/prisma-test-environment.ts",
     coverageDirectory: "coverage",
-    testEnvironment: "node",
     transform: {
         ".+\\.spec.ts$": "ts-jest",
     },
