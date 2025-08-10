@@ -1,13 +1,13 @@
-import { Status } from "@/domain/enum/status.enum"
-import { TimeSlot } from "@/domain/enum/time-slot.enum"
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { Status } from "../../domain/enum/status.enum"
+import { TimeSlot } from "../../domain/enum/time-slot.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import { Usecase } from "../usecase.core"
-import { OrderInterface } from "@/domain/interface/order.interface"
-import { OrderEntity } from "@/domain/entities/order.entity"
+import { OrderInterface } from "../../domain/interface/order.interface"
+import { OrderEntity } from "../../domain/entities/order.entity"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
+} from "../../package/exceptions/http-exceptions"
 
 export type FindOrderInput = {
     id: string

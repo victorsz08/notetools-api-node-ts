@@ -1,8 +1,8 @@
-import { prismaClient } from "@/package/prisma-client/prisma"
+import { prismaClient } from "../../package/prisma-client/prisma"
 import { UserRepositoryPrisma } from "../repositories/user.repository.prisma"
-import { RecoveryUserUsecase } from "@/usecases/security/recovery-user.usecase"
+import { RecoveryUserUsecase } from "../../usecases/security/recovery-user.usecase"
 import { RecoveryUserRoute } from "../api/express/routes/security/recovery-user.express.route"
-import { GrantUserUsecase } from "@/usecases/security/grant-user.usecase"
+import { GrantUserUsecase } from "../../usecases/security/grant-user.usecase"
 import { GrantUserRoute } from "../api/express/routes/security/grant-user.express.route"
 
 export const SecurityFactory = () => {

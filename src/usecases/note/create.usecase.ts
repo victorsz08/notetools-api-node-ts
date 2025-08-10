@@ -1,6 +1,6 @@
-import { NoteInterface } from "@/domain/interface/note.interface"
+import { NoteInterface } from "../../domain/interface/note.interface"
 import { Usecase } from "../usecase.core"
-import { NoteEntity } from "@/domain/entities/note.entity"
+import { NoteEntity } from "../../domain/entities/note.entity"
 
 export type CreateNoteInput = {
     title: string

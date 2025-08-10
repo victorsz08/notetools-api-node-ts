@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { UpdateStatusOrderUsecase } from "@/usecases/order/update-status.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { updateStatusOrderDto } from "@/package/dtos/order.dto"
+import { UpdateStatusOrderUsecase } from "../../../../../usecases/order/update-status.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { updateStatusOrderDto } from "../../../../../package/dtos/order.dto"
 
 export class UpdateStatusOrderRoute implements Route {
     private constructor(

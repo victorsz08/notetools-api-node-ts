@@ -1,6 +1,6 @@
-import { InsightInterface } from "@/domain/interface/insight.interface"
+import { InsightInterface } from "../../domain/interface/insight.interface"
 import { Usecase } from "../usecase.core"
-import { DatePattern } from "@/patterns/date"
+import { DatePattern } from "../../patterns/date"
 
 export type GetInsightInput = {
     userId: string

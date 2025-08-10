@@ -1,9 +1,9 @@
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import { Usecase } from "../usecase.core"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
+} from "../../package/exceptions/http-exceptions"
 
 export type DeleteUserInput = {
     id: string

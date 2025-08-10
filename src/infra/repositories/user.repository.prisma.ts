@@ -1,6 +1,6 @@
-import { UserEntity } from "@/domain/entities/user.entity"
-import { Role } from "@/domain/enum/role.enum"
-import { ListUser, UserInterface } from "@/domain/interface/user.interface"
+import { UserEntity } from "../../domain/entities/user.entity"
+import { Role } from "../../domain/enum/role.enum"
+import { ListUser, UserInterface } from "../../domain/interface/user.interface"
 import { Prisma, PrismaClient } from "@prisma/client"
 
 export class UserRepositoryPrisma implements UserInterface {

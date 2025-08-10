@@ -1,5 +1,5 @@
-import { NoteEntity } from "@/domain/entities/note.entity"
-import { NoteInterface, NoteList } from "@/domain/interface/note.interface"
+import { NoteEntity } from "../../domain/entities/note.entity"
+import { NoteInterface, NoteList } from "../../domain/interface/note.interface"
 import { PrismaClient } from "@prisma/client"
 
 export class NoteRepositoryPrisma implements NoteInterface {

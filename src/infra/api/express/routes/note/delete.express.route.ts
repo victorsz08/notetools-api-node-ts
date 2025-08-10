@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { DeleteNoteUsecase } from "@/usecases/note/delete.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { DeleteNoteUsecase } from "../../../../../usecases/note/delete.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class DeleteNoteRoute implements Route {
     private constructor(

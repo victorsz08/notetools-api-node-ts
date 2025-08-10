@@ -1,8 +1,8 @@
-import { TimeSlot } from "@/domain/enum/time-slot.enum"
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { TimeSlot } from "../../domain/enum/time-slot.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import { Usecase } from "../usecase.core"
-import { OrderInterface } from "@/domain/interface/order.interface"
-import { OrderEntity } from "@/domain/entities/order.entity"
+import { OrderInterface } from "../../domain/interface/order.interface"
+import { OrderEntity } from "../../domain/entities/order.entity"
 
 export type CreateOrderInput = {
     number: number

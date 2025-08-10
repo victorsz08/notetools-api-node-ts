@@ -1,4 +1,4 @@
-import { ListUser, UserInterface } from "@/domain/interface/user.interface"
+import { ListUser, UserInterface } from "../../domain/interface/user.interface"
 import { Usecase } from "../usecase.core"
 
 export type ListUserInput = {

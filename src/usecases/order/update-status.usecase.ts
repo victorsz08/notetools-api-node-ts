@@ -1,11 +1,11 @@
-import { Status } from "@/domain/enum/status.enum"
+import { Status } from "../../domain/enum/status.enum"
 import { Usecase } from "../usecase.core"
-import { OrderInterface } from "@/domain/interface/order.interface"
+import { OrderInterface } from "../../domain/interface/order.interface"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { DatePattern } from "@/patterns/date"
+} from "../../package/exceptions/http-exceptions"
+import { DatePattern } from "../../patterns/date"
 
 export type UpdateStatusOrderInput = {
     id: string

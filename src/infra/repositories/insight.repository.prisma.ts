@@ -1,10 +1,10 @@
-import { Status } from "@/domain/enum/status.enum"
+import { Status } from "../../domain/enum/status.enum"
 import {
     Insight,
     InsightDaily,
     InsightInterface,
     InsightStatus,
-} from "@/domain/interface/insight.interface"
+} from "../../domain/interface/insight.interface"
 import { PrismaClient } from "@prisma/client"
 
 export class InsightRepositoryPrisma implements InsightInterface {

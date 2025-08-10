@@ -1,11 +1,11 @@
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import { Usecase } from "../usecase.core"
-import { OrderInterface } from "@/domain/interface/order.interface"
+import { OrderInterface } from "../../domain/interface/order.interface"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { DatePattern } from "@/patterns/date"
+} from "../../package/exceptions/http-exceptions"
+import { DatePattern } from "../../patterns/date"
 
 export type UpdateOrderInput = {
     id: string

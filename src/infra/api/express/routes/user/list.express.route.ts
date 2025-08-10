@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { ListUserUsecase } from "@/usecases/user/list.usecase"
-import { listUserDto } from "@/package/dtos/user.dto"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { GuardMiddleware } from "@/middleware/guard.middleware"
-import { Role } from "@/domain/enum/role.enum"
+import { ListUserUsecase } from "../../../../../usecases/user/list.usecase"
+import { listUserDto } from "../../../../../package/dtos/user.dto"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { GuardMiddleware } from "../../../../../middleware/guard.middleware"
+import { Role } from "../../../../../domain/enum/role.enum"
 
 export class ListUserRoute implements Route {
     private constructor(

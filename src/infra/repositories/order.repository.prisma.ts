@@ -1,12 +1,12 @@
-import { OrderEntity } from "@/domain/entities/order.entity"
-import { Status } from "@/domain/enum/status.enum"
-import { TimeSlot } from "@/domain/enum/time-slot.enum"
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { OrderEntity } from "../../domain/entities/order.entity"
+import { Status } from "../../domain/enum/status.enum"
+import { TimeSlot } from "../../domain/enum/time-slot.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import {
     OrderInterface,
     OrderList,
     OrderListQuery,
-} from "@/domain/interface/order.interface"
+} from "../../domain/interface/order.interface"
 import { Prisma, PrismaClient } from "@prisma/client"
 
 export class OrderRepositoryPrisma implements OrderInterface {

@@ -1,10 +1,10 @@
-import { UserEntity } from "@/domain/entities/user.entity"
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserEntity } from "../../domain/entities/user.entity"
+import { UserInterface } from "../../domain/interface/user.interface"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { Usecase } from "@/usecases/usecase.core"
+} from "../../package/exceptions/http-exceptions"
+import { Usecase } from "../../usecases/usecase.core"
 
 export type CreateUserInput = {
     username: string

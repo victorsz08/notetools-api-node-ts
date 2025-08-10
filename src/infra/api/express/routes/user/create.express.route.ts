@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { CreateUserUsecase } from "@/usecases/user/create.usecase"
-import { Validation } from "@/middleware/validate-schema"
-import { createUserDto } from "@/package/dtos/user.dto"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { GuardMiddleware } from "@/middleware/guard.middleware"
-import { Role } from "@/domain/enum/role.enum"
+import { CreateUserUsecase } from "../../../../../usecases/user/create.usecase"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { createUserDto } from "../../../../../package/dtos/user.dto"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { GuardMiddleware } from "../../../../../middleware/guard.middleware"
+import { Role } from "../../../../../domain/enum/role.enum"
 
 export class CreateUserRoute implements Route {
     private constructor(

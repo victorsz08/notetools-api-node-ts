@@ -1,10 +1,10 @@
-import { Role } from "@/domain/enum/role.enum"
+import { Role } from "../../domain/enum/role.enum"
 import { Usecase } from "../usecase.core"
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
+} from "../../package/exceptions/http-exceptions"
 
 export type GrantUserInput = {
     id: string

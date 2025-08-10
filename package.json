@@ -4,6 +4,9 @@
     "main": "main.js",
     "scripts": {
         "dev": "nodemon --require tsconfig-paths/register --exec ts-node src/main.ts",
+        "build": "npx tsc",
+        "start": "node ./dist/main.js",
+        "postinstall": "npx prisma generate",
         "husky:prepare": "husky install",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",

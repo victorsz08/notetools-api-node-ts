@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { RecoveryUserUsecase } from "@/usecases/security/recovery-user.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { GuardMiddleware } from "@/middleware/guard.middleware"
-import { Role } from "@/domain/enum/role.enum"
+import { RecoveryUserUsecase } from "../../../../../usecases/security/recovery-user.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { GuardMiddleware } from "../../../../../middleware/guard.middleware"
+import { Role } from "../../../../../domain/enum/role.enum"
 
 export class RecoveryUserRoute implements Route {
     private constructor(

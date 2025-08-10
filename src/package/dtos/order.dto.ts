@@ -1,6 +1,6 @@
-import { Status } from "@/domain/enum/status.enum"
-import { TimeSlot } from "@/domain/enum/time-slot.enum"
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { Status } from "../../domain/enum/status.enum"
+import { TimeSlot } from "../../domain/enum/time-slot.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import z from "zod"
 
 export const createOrderDto = z.object({

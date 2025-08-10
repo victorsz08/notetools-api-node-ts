@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { UpdateSchedulingOrderUsecase } from "@/usecases/order/update-scheduling.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { updateSchedulingOrderDto } from "@/package/dtos/order.dto"
+import { UpdateSchedulingOrderUsecase } from "../../../../../usecases/order/update-scheduling.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { updateSchedulingOrderDto } from "../../../../../package/dtos/order.dto"
 
 export class UpdateSchedulingOrderRoute implements Route {
     private constructor(

@@ -1,9 +1,9 @@
-import { ChangePasswordUsecase } from "@/usecases/user/change-password.usecase"
+import { ChangePasswordUsecase } from "../../../../../usecases/user/change-password.usecase"
 import { HttpMethod, Route } from "../route.express"
 import { NextFunction, Request, Response } from "express"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { changePasswordDto } from "@/package/dtos/user.dto"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { changePasswordDto } from "../../../../../package/dtos/user.dto"
 
 export class ChangePasswordRoute implements Route {
     private constructor(

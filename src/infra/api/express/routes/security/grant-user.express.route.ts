@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { GrantUserUsecase } from "@/usecases/security/grant-user.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { grantUserDto } from "@/package/dtos/user.dto"
-import { GuardMiddleware } from "@/middleware/guard.middleware"
-import { Role } from "@/domain/enum/role.enum"
+import { GrantUserUsecase } from "../../../../../usecases/security/grant-user.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { grantUserDto } from "../../../../../package/dtos/user.dto"
+import { GuardMiddleware } from "../../../../../middleware/guard.middleware"
+import { Role } from "../../../../../domain/enum/role.enum"
 
 export class GrantUserRoute implements Route {
     private constructor(

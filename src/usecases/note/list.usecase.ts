@@ -1,4 +1,4 @@
-import { NoteInterface, NoteList } from "@/domain/interface/note.interface"
+import { NoteInterface, NoteList } from "../../domain/interface/note.interface"
 import { Usecase } from "../usecase.core"
 
 export type ListNoteInput = {

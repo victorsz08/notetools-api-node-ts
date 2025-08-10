@@ -1,10 +1,10 @@
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import { Usecase } from "../usecase.core"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { UserEntity } from "@/domain/entities/user.entity"
+} from "../../package/exceptions/http-exceptions"
+import { UserEntity } from "../../domain/entities/user.entity"
 
 export type FindUserInput = {
     id: string

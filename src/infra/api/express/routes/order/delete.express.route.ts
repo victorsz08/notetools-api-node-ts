@@ -1,7 +1,7 @@
 import { DeleteOrderUsecase } from "./../../../../../usecases/order/delete.usecase"
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class DeleteOrderRoute implements Route {
     private constructor(

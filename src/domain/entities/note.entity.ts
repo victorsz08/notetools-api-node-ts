@@ -1,5 +1,5 @@
-import { DatePattern } from "@/patterns/date"
-import { RandomId } from "@/patterns/random-id"
+import { DatePattern } from "../../patterns/date"
+import { RandomId } from "../../patterns/random-id"
 
 export type Note = {
     id: string

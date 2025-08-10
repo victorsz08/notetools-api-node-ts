@@ -1,7 +1,7 @@
-import { FindNoteUsecase } from "@/usecases/note/find.usecase"
+import { FindNoteUsecase } from "../../../../../usecases/note/find.usecase"
 import { HttpMethod, Route } from "../route.express"
 import { Request, Response, NextFunction } from "express"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class FindNoteRoute implements Route {
     private constructor(

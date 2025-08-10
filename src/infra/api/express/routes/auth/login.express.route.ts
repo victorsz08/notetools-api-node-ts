@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { AuthLoginUsecase } from "@/usecases/auth/login.usecase"
-import { Validation } from "@/middleware/validate-schema"
-import { authLoginDto } from "@/package/dtos/auth.dto"
+import { AuthLoginUsecase } from "../../../../../usecases/auth/login.usecase"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { authLoginDto } from "../../../../../package/dtos/auth.dto"
 
 export class AuthLoginRoute implements Route {
     private constructor(

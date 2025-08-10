@@ -1,10 +1,10 @@
-import { ListOrderUsecase } from "@/usecases/order/list.usecase"
+import { ListOrderUsecase } from "../../../../../usecases/order/list.usecase"
 import { HttpMethod, Route } from "../route.express"
-import { listOrderDto } from "@/package/dtos/order.dto"
+import { listOrderDto } from "../../../../../package/dtos/order.dto"
 import { NextFunction, Request, Response } from "express"
 import { verify } from "jsonwebtoken"
-import { UserEntity } from "@/domain/entities/user.entity"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { UserEntity } from "../../../../../domain/entities/user.entity"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class ListOrderRoute implements Route {
     private constructor(

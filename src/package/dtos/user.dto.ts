@@ -1,4 +1,4 @@
-import { Role } from "@/domain/enum/role.enum"
+import { Role } from "../../domain/enum/role.enum"
 import { z } from "zod"
 
 export const createUserDto = z.object({

@@ -1,7 +1,7 @@
-import { RandomId } from "@/patterns/random-id"
+import { RandomId } from "../../patterns/random-id"
 import { Status } from "../enum/status.enum"
 import { TimeSlot } from "../enum/time-slot.enum"
-import { DatePattern } from "@/patterns/date"
+import { DatePattern } from "../../patterns/date"
 import { TypeOrder } from "../enum/type-order.enum"
 
 export type Order = {

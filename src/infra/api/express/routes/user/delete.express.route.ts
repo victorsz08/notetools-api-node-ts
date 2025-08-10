@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { DeleteUserUsecase } from "@/usecases/user/delete.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { GuardMiddleware } from "@/middleware/guard.middleware"
-import { Role } from "@/domain/enum/role.enum"
+import { DeleteUserUsecase } from "../../../../../usecases/user/delete.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { GuardMiddleware } from "../../../../../middleware/guard.middleware"
+import { Role } from "../../../../../domain/enum/role.enum"
 
 export class DeleteUserRoute implements Route {
     private constructor(

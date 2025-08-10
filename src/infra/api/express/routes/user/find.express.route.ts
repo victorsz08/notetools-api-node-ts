@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { FindUserUsecase } from "@/usecases/user/find.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { FindUserUsecase } from "../../../../../usecases/user/find.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class FindUserRoute implements Route {
     private constructor(

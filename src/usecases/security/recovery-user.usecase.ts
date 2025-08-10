@@ -1,11 +1,11 @@
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import { Usecase } from "../usecase.core"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { Hash } from "@/patterns/hash"
-import { DatePattern } from "@/patterns/date"
+} from "../../package/exceptions/http-exceptions"
+import { Hash } from "../../patterns/hash"
+import { DatePattern } from "../../patterns/date"
 
 export type RecoveryUserInput = {
     id: string

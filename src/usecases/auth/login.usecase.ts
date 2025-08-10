@@ -1,10 +1,10 @@
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import { Usecase } from "../usecase.core"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
-import { Hash } from "@/patterns/hash"
+} from "../../package/exceptions/http-exceptions"
+import { Hash } from "../../patterns/hash"
 import { sign } from "jsonwebtoken"
 
 export type AuthLoginInput = {

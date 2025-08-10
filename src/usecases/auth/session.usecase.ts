@@ -1,12 +1,12 @@
-import { Role } from "@/domain/enum/role.enum"
+import { Role } from "../../domain/enum/role.enum"
 import { Usecase } from "../usecase.core"
-import { UserInterface } from "@/domain/interface/user.interface"
+import { UserInterface } from "../../domain/interface/user.interface"
 import { verify } from "jsonwebtoken"
-import { UserEntity } from "@/domain/entities/user.entity"
+import { UserEntity } from "../../domain/entities/user.entity"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
+} from "../../package/exceptions/http-exceptions"
 
 export type AuthSessionInput = {
     token: string

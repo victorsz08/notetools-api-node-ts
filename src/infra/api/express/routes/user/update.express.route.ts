@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { UpdateUserUsecase } from "@/usecases/user/update.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { updateUserDto } from "@/package/dtos/user.dto"
+import { UpdateUserUsecase } from "../../../../../usecases/user/update.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { updateUserDto } from "../../../../../package/dtos/user.dto"
 
 export class UpdateUserRoute implements Route {
     private constructor(

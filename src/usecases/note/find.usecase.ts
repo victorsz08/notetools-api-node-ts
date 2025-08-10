@@ -1,10 +1,10 @@
-import { NoteInterface } from "@/domain/interface/note.interface"
+import { NoteInterface } from "../../domain/interface/note.interface"
 import { Usecase } from "../usecase.core"
-import { NoteEntity } from "@/domain/entities/note.entity"
+import { NoteEntity } from "../../domain/entities/note.entity"
 import {
     HttpException,
     HttpStatusCode,
-} from "@/package/exceptions/http-exceptions"
+} from "../../package/exceptions/http-exceptions"
 
 export type FindNoteInput = {
     id: string

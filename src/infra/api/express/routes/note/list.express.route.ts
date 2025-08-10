@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { ListNoteUsecase } from "@/usecases/note/list.usecase"
-import { listNoteDto } from "@/package/dtos/note.dto"
+import { ListNoteUsecase } from "../../../../../usecases/note/list.usecase"
+import { listNoteDto } from "../../../../../package/dtos/note.dto"
 import { verify } from "jsonwebtoken"
-import { UserEntity } from "@/domain/entities/user.entity"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { UserEntity } from "../../../../../domain/entities/user.entity"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class ListNoteRoute implements Route {
     private constructor(

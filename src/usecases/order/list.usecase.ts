@@ -1,8 +1,11 @@
-import { Status } from "@/domain/enum/status.enum"
-import { TimeSlot } from "@/domain/enum/time-slot.enum"
-import { TypeOrder } from "@/domain/enum/type-order.enum"
+import { Status } from "../../domain/enum/status.enum"
+import { TimeSlot } from "../../domain/enum/time-slot.enum"
+import { TypeOrder } from "../../domain/enum/type-order.enum"
 import { Usecase } from "../usecase.core"
-import { OrderInterface, OrderList } from "@/domain/interface/order.interface"
+import {
+    OrderInterface,
+    OrderList,
+} from "../../domain/interface/order.interface"
 
 export type ListOrderInput = {
     page: number

@@ -4,7 +4,7 @@ import { Route } from "./routes/route.express"
 import CookieParser from "cookie-parser"
 import cors from "cors"
 import swaggerUi from "swagger-ui-express"
-import swaggerJson from "@/docs.swagger.json"
+import swaggerJson from "../../../docs.swagger.json"
 
 export class ApiExpress implements Api {
     private app: Express

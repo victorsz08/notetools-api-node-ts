@@ -1,4 +1,4 @@
-import { OrderInterface } from "@/domain/interface/order.interface"
+import { OrderInterface } from "../../domain/interface/order.interface"
 import { Usecase } from "../usecase.core"
 
 export type DeleteGroupOrderInput = {

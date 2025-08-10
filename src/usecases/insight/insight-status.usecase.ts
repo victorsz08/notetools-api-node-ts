@@ -1,4 +1,4 @@
-import { InsightInterface } from "@/domain/interface/insight.interface"
+import { InsightInterface } from "../../domain/interface/insight.interface"
 import { Usecase } from "../usecase.core"
 
 export type GetInsightStatusInput = {

@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { CreateOrderUsecase } from "@/usecases/order/create.usecase"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
-import { Validation } from "@/middleware/validate-schema"
-import { createOrderDto } from "@/package/dtos/order.dto"
+import { CreateOrderUsecase } from "../../../../../usecases/order/create.usecase"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
+import { Validation } from "../../../../../middleware/validate-schema"
+import { createOrderDto } from "../../../../../package/dtos/order.dto"
 
 export class CreateOrderRoute implements Route {
     private constructor(

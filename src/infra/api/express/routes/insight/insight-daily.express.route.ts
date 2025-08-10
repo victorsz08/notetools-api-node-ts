@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express"
 import { HttpMethod, Route } from "../route.express"
-import { GetInsightDailyUsecase } from "@/usecases/insight/insight-daily.usecase"
+import { GetInsightDailyUsecase } from "../../../../../usecases/insight/insight-daily.usecase"
 import { verify } from "jsonwebtoken"
-import { UserEntity } from "@/domain/entities/user.entity"
-import { getInsightDto } from "@/package/dtos/insight.dto"
-import { AuthMiddleware } from "@/middleware/auth.middleware"
+import { UserEntity } from "../../../../../domain/entities/user.entity"
+import { getInsightDto } from "../../../../../package/dtos/insight.dto"
+import { AuthMiddleware } from "../../../../../middleware/auth.middleware"
 
 export class GetInsightDailyRoute implements Route {
     private constructor(
