@@ -5,6 +5,7 @@ import { NoteFactory } from "./infra/factories/note.factory"
 import { Orderfactory } from "./infra/factories/order.factory"
 import { SecurityFactory } from "./infra/factories/security.factory"
 import { UserFactory } from "./infra/factories/user.factory"
+import "dotenv/config"
 
 function main() {
     const api = ApiExpress.build([
@@ -15,7 +16,7 @@ function main() {
         ...SecurityFactory(),
         ...AuthFactory(),
     ])
-    api.start(3333)
+    api.start(Number(process.env.PORT))
 }
 
 main()
