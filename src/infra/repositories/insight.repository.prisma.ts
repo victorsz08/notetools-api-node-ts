@@ -31,15 +31,37 @@ export class InsightRepositoryPrisma implements InsightInterface {
             },
         })
 
-        const connected = orders.filter((order) => order.status === "CONECTADO")
-        const canceled = orders.filter((order) => order.status === "CANCELADO")
+        const schedulingOrders = await this.prisma.contract.findMany({
+            where: {
+                user: {
+                    id: userId,
+                },
+                schedulingDate: {
+                    gte: startDate,
+                    lte: endDate,
+                },
+            },
+        })
+
         const sales = orders.length
 
-        const revenue = connected.reduce((total, item) => total + item.price, 0)
+        const connectedSchedulingOrders = schedulingOrders.filter(
+            (order) => order.status === "CONECTADO",
+        )
+        const canceledSchedulingOrders = orders.filter(
+            (order) => order.status === "CANCELADO",
+        )
+
+        const revenue = connectedSchedulingOrders.reduce(
+            (total, item) => total + item.price,
+            0,
+        )
         const completionRate = Number(
-            ((connected.length + canceled.length) / connected.length).toFixed(
-                2,
-            ),
+            (
+                connectedSchedulingOrders.length /
+                (connectedSchedulingOrders.length +
+                    canceledSchedulingOrders.length)
+            ).toFixed(2),
         )
 
         return {
@@ -101,27 +123,22 @@ export class InsightRepositoryPrisma implements InsightInterface {
         startDate: Date,
         endDate: Date,
     ): Promise<InsightDaily[]> {
-        const orders = await this.prisma.contract.groupBy({
-            by: ["createdAt"],
-            where: {
-                user: { id: userId },
-                createdAt: {
-                    gte: startDate,
-                    lte: endDate,
-                },
-            },
-            _count: {
-                id: true,
-            },
-        })
+        const orders = await this.prisma.$queryRaw<
+            { date: string; quantity: number }[]
+        >`
+            SELECT DATE("createdAt") as date, COUNT(id) as quantity
+            FROM "Contract"
+            WHERE "userId" = ${userId}
+            AND "createdAt" BETWEEN ${startDate} AND ${endDate}
+            GROUP BY DATE("createdAt")
+            ORDER BY date ASC;
+            `
 
-        const dailyMap: InsightDaily[] = orders.map((order) => {
-            return {
-                quantity: order._count.id,
-                date: order.createdAt,
-            }
-        })
+        const result: InsightDaily[] = orders.map((order) => ({
+            date: new Date(order.date),
+            quantity: Number(order.quantity),
+        }))
 
-        return dailyMap
+        return result
     }
 }

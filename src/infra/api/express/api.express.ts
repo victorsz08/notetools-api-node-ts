@@ -5,6 +5,7 @@ import CookieParser from "cookie-parser"
 import cors from "cors"
 import swaggerUi from "swagger-ui-express"
 import swaggerJson from "../../../docs.swagger.json"
+import { HttpHandleExceptions } from "../../../middleware/http-handle-exceptions"
 
 export class ApiExpress implements Api {
     private app: Express
@@ -12,18 +13,20 @@ export class ApiExpress implements Api {
     private constructor(routes: Route[]) {
         this.app = express()
 
-        this.app.use(express.json())
-        this.app.use(CookieParser())
         this.app.use(
             cors({
-                origin: ["http://localhost:5173"],
-                allowedHeaders: "Content-type, Authorization",
+                origin: [String(process.env.ORIGIN), "http://localhost:5173"],
+                allowedHeaders: ["Content-type", "Authorization"],
                 methods: ["POST", "PUT", "GET", "DELETE", "OPTIONS"],
                 credentials: true,
             }),
         )
 
+        this.app.use(express.json())
+        this.app.use(CookieParser())
+
         this.addRoutes(routes)
+        this.app.use(HttpHandleExceptions)
         this.addLogs(routes)
         this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerJson))
     }
